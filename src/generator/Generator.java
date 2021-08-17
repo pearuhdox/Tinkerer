@@ -147,8 +147,8 @@ public class Generator {
 		int width = (int) size.getWidth();
 		int height = (int) size.getHeight();
 
-		// width = width / 2;
-		// height = height / 2;
+		width = (int) (width / 1.25);
+		height = (int) (height / 1.1);
 
 		JFrame frame = new JFrame();
 		frame.setSize(width, height);
@@ -325,6 +325,7 @@ public class Generator {
 		frame.add(settingsTabs);
 		frame.add(viewHalf);
 
+		frame.setLocationRelativeTo(frame);
 		frame.setTitle("Item Generator");
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setVisible(true);
