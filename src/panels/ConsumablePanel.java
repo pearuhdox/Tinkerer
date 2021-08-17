@@ -15,6 +15,7 @@ import javax.swing.JTextField;
 import javax.swing.SpinnerNumberModel;
 import javax.swing.border.Border;
 
+@SuppressWarnings("serial")
 public class ConsumablePanel extends JPanel {
 
 	JTextField eftSpeedDuration = new JTextField(10);

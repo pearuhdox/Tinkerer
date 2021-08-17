@@ -11,6 +11,7 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.border.Border;
 
+@SuppressWarnings("serial")
 public class SpecialPanel extends JPanel {
 
 	public JTextField specialNameField = new JTextField(10);

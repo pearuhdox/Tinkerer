@@ -18,13 +18,14 @@ import javax.swing.JTextField;
 import javax.swing.SpinnerNumberModel;
 import javax.swing.border.Border;
 
+@SuppressWarnings("serial")
 public class BasicPanel extends JPanel {
 
-	public JComboBox type;
+	public JComboBox<String> type;
 	public JTextField typeAddendum;
 	public JRadioButton overwriteMainhand = new JRadioButton("Slot Override: Mainhand");
 	public JRadioButton overwriteOffhand = new JRadioButton("Slot Override: Offhand");
-	public JComboBox tier;
+	public JComboBox<String> tier;
 	public JTextField id;
 	public JSpinner count;
 	public JTextField attack;
@@ -42,7 +43,7 @@ public class BasicPanel extends JPanel {
 		super();
 		
 		String[] typeList = {"Melee Weapon", "Ranged Weapon", "Tool", "Hybrid Weapon", "Armor", "Offhand", "Shield", "Consumable", "Empowered Item", "Material", "Objective Item"};
-		type = new JComboBox(typeList);
+		type = new JComboBox<String>(typeList);
 		JLabel typeLabel = new JLabel("Type");
 		typeAddendum = new JTextField(20);
 		ButtonGroup overwrite = new ButtonGroup();
@@ -57,7 +58,7 @@ public class BasicPanel extends JPanel {
 		typePanel.add(overwriteOffhand);
 		
 		String[] tierList = {"Common Item", "Uncommon Item", "Unique Item", "Artifact", "Relic"};
-		tier = new JComboBox(tierList);
+		tier = new JComboBox<String>(tierList);
 		JLabel tierLabel = new JLabel("Tier");
 		JPanel tierPanel = new JPanel();
 		tierPanel.setLayout(new FlowLayout(FlowLayout.LEFT));

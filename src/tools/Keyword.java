@@ -2,7 +2,6 @@ package tools;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collection;
 import java.util.HashSet;
 import java.util.Iterator;
 
@@ -84,8 +83,6 @@ public class Keyword {
 			boolean typeCurse = false;
 			boolean typePosEffect = false;
 			boolean typeNegEffect = false;
-			boolean typeKeybind = false;
-
 			boolean skipEffects = false;
 
 			Iterator<String> iterator = enchantList.iterator();
@@ -202,7 +199,6 @@ public class Keyword {
 					result.add(new Segment(colorDescribe, "["));
 					result.add(new Segment(colorActiveStat, input.get(i), true));
 					result.add(new Segment(colorDescribe, "]"));
-					typeKeybind = true;
 					doNotAdd = true;
 				}
 			}

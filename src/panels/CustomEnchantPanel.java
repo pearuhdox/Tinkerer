@@ -11,6 +11,7 @@ import javax.swing.JSpinner;
 import javax.swing.SpinnerNumberModel;
 import javax.swing.border.Border;
 
+@SuppressWarnings("serial")
 public class CustomEnchantPanel extends JPanel {
 
 	// Array List for all buttons

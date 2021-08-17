@@ -5,13 +5,13 @@ import java.awt.LayoutManager;
 
 import javax.swing.BorderFactory;
 import javax.swing.BoxLayout;
-import javax.swing.JCheckBox;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 import javax.swing.JTextField;
 import javax.swing.border.Border;
 
+@SuppressWarnings("serial")
 public class ActivePanel extends JPanel {
 
 	public JTextField activeNameField = new JTextField(10);

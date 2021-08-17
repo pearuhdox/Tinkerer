@@ -15,16 +15,17 @@ import javax.swing.JTextField;
 import javax.swing.SpinnerNumberModel;
 import javax.swing.border.Border;
 
+@SuppressWarnings("serial")
 public class ShieldPanel extends JPanel {
 
 	public JSpinner model = new JSpinner(new SpinnerNumberModel(0, 0, 100, 1));
 	public JSpinner blockModel = new JSpinner(new SpinnerNumberModel(0, 0, 100, 1));
-	public JComboBox blockType;
+	public JComboBox<String> blockType;
 	public JSpinner blockValueMax = new JSpinner(new SpinnerNumberModel(1, 1, 40, 1));
 	public JSpinner coyoteTime = new JSpinner(new SpinnerNumberModel(0,0,20,1));
 
 	String[] persistenceArray = { "Low", "Medium", "High" };
-	public JComboBox persistenceType = new JComboBox(persistenceArray);
+	public JComboBox<String> persistenceType = new JComboBox<String>(persistenceArray);
 
 	public JSpinner playerBlockEffect = new JSpinner(new SpinnerNumberModel(0, 0, 20, 1));
 	public JSpinner entityBlockEffect = new JSpinner(new SpinnerNumberModel(0, 0, 20, 1));
@@ -37,7 +38,7 @@ public class ShieldPanel extends JPanel {
 	public JSpinner bashEffectID = new JSpinner(new SpinnerNumberModel(0, 0, 100, 1));
 
 	public String[] blockAngleArray = { "Narrow", "Average", "Wide" };
-	public JComboBox blockAngle = new JComboBox(blockAngleArray);
+	public JComboBox<String> blockAngle = new JComboBox<String>(blockAngleArray);
 
 	public JRadioButton canBlockArrows = new JRadioButton();
 
@@ -70,7 +71,7 @@ public class ShieldPanel extends JPanel {
 		JLabel blockTypeLabel = new JLabel("Blocking Type");
 		JLabel coyoteLabel = new JLabel("Coyote Time (Parry)");
 		String[] blockTypeArray = { "Normal Blocking", "Parry Blocking" };
-		blockType = new JComboBox(blockTypeArray);
+		blockType = new JComboBox<String>(blockTypeArray);
 		JPanel blockTypePanel = new JPanel();
 		blockTypePanel.setLayout(new FlowLayout(FlowLayout.LEFT));
 		blockTypePanel.add(blockTypeLabel);

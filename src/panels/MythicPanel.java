@@ -11,6 +11,7 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.border.Border;
 
+@SuppressWarnings("serial")
 public class MythicPanel extends JPanel {
 
 	public JTextField mythNameField = new JTextField(10);

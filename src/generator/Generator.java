@@ -900,7 +900,6 @@ public class Generator {
 		Line armorStat = null;
 		Line toughnessStat = null;
 		Line rngStat = null;
-		Line hybridStat = null;
 		Line digStat = null;
 
 		// If the item has Attack Damage, display it as a combat stat.
@@ -1309,8 +1308,6 @@ public class Generator {
 		boolean[] isEffectPositive = { true, false, true, false, true, true, false, true, false, true, true, true, true,
 				true, false, true, false, false, false, false, true, true, true, true, false, true, false, true, true,
 				true, false, true };
-
-		Line whenConsumedLine = null;
 
 		boolean inflictsOverApplies = false;
 
