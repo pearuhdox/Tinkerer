@@ -27,11 +27,16 @@ public class ShieldPanel extends JPanel {
 	String[] persistenceArray = { "Low", "Medium", "High" };
 	public JComboBox<String> persistenceType = new JComboBox<String>(persistenceArray);
 
-	public JSpinner playerBlockEffect = new JSpinner(new SpinnerNumberModel(0, 0, 20, 1));
-	public JSpinner entityBlockEffect = new JSpinner(new SpinnerNumberModel(0, 0, 20, 1));
+	public JSpinner playerBlockEffect = new JSpinner(new SpinnerNumberModel(0, 0, 10000, 1));
+	public JSpinner entityBlockEffect = new JSpinner(new SpinnerNumberModel(0, 0, 10000, 1));
 
+	public JSpinner playerParryEffect = new JSpinner(new SpinnerNumberModel(0, 0, 10000, 1));
+	public JSpinner entityParryEffect = new JSpinner(new SpinnerNumberModel(0, 0, 10000, 1));
+	
 	public JSpinner shieldTimeMax = new JSpinner(new SpinnerNumberModel(0, 0, 1200, 10));
 	public JSpinner cooldownTime = new JSpinner(new SpinnerNumberModel(0, 0, 1200, 10));
+	
+	public JSpinner parryWindow = new JSpinner(new SpinnerNumberModel(5, 0, 40, 1));
 
 	public JTextField durabilityMax = new JTextField(5);
 
@@ -40,7 +45,7 @@ public class ShieldPanel extends JPanel {
 	public String[] blockAngleArray = { "Narrow", "Average", "Wide" };
 	public JComboBox<String> blockAngle = new JComboBox<String>(blockAngleArray);
 
-	public JRadioButton canBlockArrows = new JRadioButton();
+	public JRadioButton canReflectArrows = new JRadioButton();
 
 	public JRadioButton disableResist = new JRadioButton();
 
@@ -69,7 +74,8 @@ public class ShieldPanel extends JPanel {
 		modelPanel.add(blockModel);
 
 		JLabel blockTypeLabel = new JLabel("Blocking Type");
-		JLabel coyoteLabel = new JLabel("Coyote Time (Parry)");
+		JLabel coyoteLabel = new JLabel("Coyote Time (Parry Only)");
+		JLabel parryWindowLabel = new JLabel("Parry Window (Normal Only)");
 		String[] blockTypeArray = { "Normal Blocking", "Parry Blocking" };
 		blockType = new JComboBox<String>(blockTypeArray);
 		JPanel blockTypePanel = new JPanel();
@@ -79,6 +85,8 @@ public class ShieldPanel extends JPanel {
 		blockTypePanel.add(blockValueMax);
 		blockTypePanel.add(coyoteLabel);
 		blockTypePanel.add(coyoteTime);
+		blockTypePanel.add(parryWindowLabel);
+		blockTypePanel.add(parryWindow);
 
 		JLabel persistenceLabel = new JLabel("Persistence");
 
@@ -90,6 +98,9 @@ public class ShieldPanel extends JPanel {
 		JLabel pBELabel = new JLabel("Player Block Effect ID");
 		JLabel eBELabel = new JLabel("Entity Block Effect ID");
 
+		JLabel pBEParryLabel = new JLabel("Player Parry Effect ID");
+		JLabel eBEParryLabel = new JLabel("Entity Parry Effect ID");
+		
 		JPanel blockEffects = new JPanel();
 		blockEffects.setLayout(new FlowLayout(FlowLayout.LEFT));
 
@@ -98,6 +109,12 @@ public class ShieldPanel extends JPanel {
 
 		blockEffects.add(eBELabel);
 		blockEffects.add(entityBlockEffect);
+		
+		blockEffects.add(pBEParryLabel);
+		blockEffects.add(playerParryEffect);
+
+		blockEffects.add(eBEParryLabel);
+		blockEffects.add(entityParryEffect);
 
 		JPanel shieldTechnical = new JPanel();
 		Border shieldTechBorder = BorderFactory.createTitledBorder("Technical Stats");
@@ -122,7 +139,7 @@ public class ShieldPanel extends JPanel {
 		JLabel durabilityMaxLabel = new JLabel("Max Durability");
 		JLabel bashEffectIDLabel = new JLabel("Bash Effect ID");
 		JLabel blockAngleLabel = new JLabel("Block Angle");
-		canBlockArrows.setText("Can Block Arrows");
+		canReflectArrows.setText("Can Reflect Arrows");
 
 		techStats.add(durabilityMaxLabel);
 		techStats.add(durabilityMax);
@@ -130,7 +147,7 @@ public class ShieldPanel extends JPanel {
 		techStats.add(bashEffectID);
 		techStats.add(blockAngleLabel);
 		techStats.add(blockAngle);
-		techStats.add(canBlockArrows);
+		techStats.add(canReflectArrows);
 
 		shieldTechnical.add(techStats);
 
@@ -142,7 +159,7 @@ public class ShieldPanel extends JPanel {
 
 		disableResist.setText("Disable Resistant");
 		JLabel disableTimeLabel = new JLabel("Disable Time");
-		disableTime.setText("160");
+		disableTime.setText("50");
 
 		disables.add(disableResist);
 		disables.add(disableTimeLabel);

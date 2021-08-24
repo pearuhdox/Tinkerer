@@ -734,16 +734,26 @@ public class Generator {
 
 			result = result + ",minimum_block_value:" + persistVal;
 
+			result = result + ",player_parry_effect:" + (int) cushields.playerParryEffect.getValue();
+			result = result + ",entity_parry_effect:" + (int) cushields.entityParryEffect.getValue();
+
 			result = result + ",player_block_effect:" + (int) cushields.playerBlockEffect.getValue();
 			result = result + ",entity_block_effect:" + (int) cushields.entityBlockEffect.getValue();
-
-			result = result + ",parry_time:8";
+			
+			int maxTime = (int) cushields.shieldTimeMax.getValue();
+			int parryWindow = (int) cushields.parryWindow.getValue();
+			
+			result = result + ",max_time:" + maxTime;
+			result = result + ",parry_time:" + parryWindow;
 		} else if (cushields.blockType.getSelectedItem().equals("Parry Blocking")) {
 			int coyoteTimeVal = (int) cushields.coyoteTime.getValue();
 
-			result = result + "player_parry_effect:" + (int) cushields.playerBlockEffect.getValue();
-			result = result + "entity_parry_effect:" + (int) cushields.entityBlockEffect.getValue();
+			result = result + ",player_parry_effect:" + (int) cushields.playerBlockEffect.getValue();
+			result = result + ",entity_parry_effect:" + (int) cushields.entityBlockEffect.getValue();
 
+			result = result + ",player_block_effect:" + (int) cushields.playerBlockEffect.getValue();
+			result = result + ",entity_block_effect:" + (int) cushields.entityBlockEffect.getValue();
+			
 			if (coyoteTimeVal == 0) {
 				result = result + ",can_coyote:0b";
 			} else {
@@ -752,13 +762,14 @@ public class Generator {
 			}
 
 			result = result + ",parry_time:" + (int) cushields.shieldTimeMax.getValue();
+			result = result + ",max_time:" + (int) cushields.shieldTimeMax.getValue();
+
 		}
 
 		// entity_block_effect:1,max_time:10,cooldown:10,durability:15,bash_effect:1,x_angle:90,y_angle:90,can_reflect_arrows:0b,
 		// disable_time:50}}
 
 		result = result + ",bash_effect:" + (int) cushields.bashEffectID.getValue();
-		result = result + ",max_time:" + (int) cushields.shieldTimeMax.getValue();
 		result = result + ",cooldown:" + (int) cushields.cooldownTime.getValue();
 		result = result + ",durability:" + Integer.parseInt(cushields.durabilityMax.getText());
 		result = result + ",x_angle:90";
@@ -771,7 +782,7 @@ public class Generator {
 			result = result + ",y_angle:120";
 		}
 
-		if (cushields.canBlockArrows.isSelected()) {
+		if (cushields.canReflectArrows.isSelected()) {
 			result = result + ",can_reflect_arrows:1b";
 		} else {
 			result = result + ",can_reflect_arrows:0b";
@@ -1458,10 +1469,10 @@ public class Generator {
 				canResistDisable.addSet(colorCombatStat, "Disable Resistant");
 				itemBlockStatsList.add(canResistDisable);
 			}
-			if (!cushields.canBlockArrows.isSelected()) {
+			if (!cushields.canReflectArrows.isSelected()) {
 				Line canBlockArrowsLine = new Line();
 				canBlockArrowsLine.addSet(colorCurseImgStat, voidImg);
-				canBlockArrowsLine.addSet(colorCurseStat, "Cannot Block Arrows");
+				canBlockArrowsLine.addSet(colorCurseStat, "Cannot Reflect Arrows");
 				itemBlockStatsList.add(canBlockArrowsLine);
 			}
 		}

@@ -13,8 +13,8 @@ public class Keyword {
 			"Depth_Strider", "Feather_Falling", "Fire_Protection", "Frost_Walker", "Projectile_Protection",
 			"Protection", "Respiration", "Soul Speed", "Bane_of_Arthropods", "Fire_Aspect", "Impaling", "Knockback",
 			"Looting", "Sharpness", "Smite", "Sweeping_Edge", "Channeling", "Flame", "Infinity", "Loyalty", "Multishot",
-			"Piercing", "Power", "Punch", "Quick_Charge", "Riptide", "Efficiency", "Fortune", "Silk_Touch",
-			"Curse_of_Binding", "Curse_of_Vanishing", "Mending", "Unbreaking"));
+			"Piercing", "Power", "Punch", "Quick_Charge", "Riptide", "Efficiency", "Fortune", "Silk_Touch", "Mending",
+			"Unbreaking"));
 	private static HashSet<String> customEnchantList = new HashSet<String>(Arrays.asList("Adrenaline", "Agility",
 			"Aquadynamic", "Concealed", "Fatigue_Cleansing", "Slowness_Cleansing", "Weakness_Cleansing",
 			"Poison_Cleansing", "Wither_Cleansing", "Energetic", "Evasion", "Frenzy", "Lifesteal", "Rally",
@@ -23,8 +23,7 @@ public class Keyword {
 			"Surging_Strike", "Transfiguration", "Vanquisher", "Auto_Charge", "Bleed", "Current", "Deadeye",
 			"Electrode", "Expose", "Frost", "Hydraulic", "Flash", "Fleetfoot", "Infect", "Overcharge", "Point_Blank",
 			"Repeating", "Ricochet", "Sharpshot", "Tempest", "Tempo_Theft", "Trueshot", "Volatile", "Eruption",
-			"Sapper", "Splintering", "Curse_of_Encumbering", "Curse_of_Irreparability", "Curse_of_Malevolence",
-			"Curse_of_Regret", "Curse_of_Shattering", "Two_Handed", "Infinity", "Unbreakable", "Loyalty", "Thorns"));
+			"Sapper", "Splintering", "Two_Handed", "Infinity", "Unbreakable", "Loyalty", "Thorns"));
 	private static HashSet<String> attributeList = new HashSet<String>(
 			Arrays.asList("Max_HealthAttr", "ArmorAttr", "Armor_ToughnessAttr", "Melee_DamageAttr", "LuckAttr",
 					"Attack_SpeedAttr", "SpeedAttr", "Knockback_ResistanceAttr"));
@@ -46,8 +45,9 @@ public class Keyword {
 			"heartneg05", "heartneg06", "heartneg07", "heartneg08", "heartneg09"));
 	private static HashSet<String> fractionList = new HashSet<String>(
 			Arrays.asList("(1/2)", "(1/3)", "(1/4)", "(2/3)", "(3/4)"));
-	private static HashSet<String> keybindList = new HashSet<String>(Arrays.asList("key.sneak", "key.jump", "key.use", "key.swapOffhand"));
-	
+	private static HashSet<String> keybindList = new HashSet<String>(
+			Arrays.asList("key.sneak", "key.jump", "key.use", "key.swapOffhand"));
+
 	// Colors used for positive enchant stats (sharpness/efficiency etc)
 	static String colorEnchantImgStat = "#A665D1";
 	static String colorEnchantStat = "#DDABFF";
@@ -61,7 +61,7 @@ public class Keyword {
 	// (curses, negative attributes, negative potion effects)
 	static String colorCurseImgStat = "#D16E66";
 	static String colorCurseStat = "#FFAEA8";
-	
+
 	// Active Color
 	static String colorActiveStat = "#FCFCB1";
 
@@ -160,7 +160,7 @@ public class Keyword {
 
 					if (oddNumberHealth && numberHealth > 1) {
 						heartDisplay = heartDisplay + " & (½❤)";
-					} else if (oddNumberHealth && numberHealth < 2){
+					} else if (oddNumberHealth && numberHealth < 2) {
 						heartDisplay = "(½❤)";
 					}
 
@@ -177,22 +177,22 @@ public class Keyword {
 			while (iterator.hasNext()) {
 				if (input.get(i).contains(iterator.next())) {
 					String fraction = input.get(i);
-					if(fraction.contains("(1/2)")) {
+					if (fraction.contains("(1/2)")) {
 						result.add(new Segment(defaultColor, "½"));
-					} else if(fraction.contains("(1/3)")) {
+					} else if (fraction.contains("(1/3)")) {
 						result.add(new Segment(defaultColor, "⅓"));
-					} else if(fraction.contains("(1/4)")) {
+					} else if (fraction.contains("(1/4)")) {
 						result.add(new Segment(defaultColor, "¼"));
-					} else if(fraction.contains("(2/3)")) {
+					} else if (fraction.contains("(2/3)")) {
 						result.add(new Segment(defaultColor, "⅔"));
-					} else if(fraction.contains("(3/4)")) {
+					} else if (fraction.contains("(3/4)")) {
 						result.add(new Segment(defaultColor, "¾"));
 					}
-					
+
 					doNotAdd = true;
 				}
 			}
-			
+
 			iterator = keybindList.iterator();
 			while (iterator.hasNext()) {
 				if (input.get(i).contains(iterator.next())) {
@@ -202,7 +202,7 @@ public class Keyword {
 					doNotAdd = true;
 				}
 			}
-			
+
 			// Remove underscores from the input.
 			String removedUnder = input.get(i).replace("_", " ");
 
